@@ -1,12 +1,24 @@
-//Funções a serem exportadas
+//Destructuring recebendo a função get
+const {get} = require('./exercicio010-00');
+let lista = [];
 
-function gets(){
-    return 10;
+for(let i = 0; i < 5; i++){
+    lista.push(get());
 }
 
-function print(texto){
-    console.log(texto);
+//Ser ordenar a lista
+let maior = lista[0];
+for(let i = 0; i < lista.length; i++){
+    if(maior < lista[i]){
+        maior = lista[i];
+    }
 }
+console.log(maior);
 
-//Indicando o que será exportado
-module.exports = {gets, print};
+//Sem ordenar a lista
+let maiorValor = Math.max.apply(null, lista);
+console.log(maiorValor);
+
+//Ordenando a lista
+lista.sort();
+console.log(lista[lista.length - 1]);
